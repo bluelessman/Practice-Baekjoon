@@ -1,18 +1,11 @@
 import sys
 N = sys.stdin.readline()
-l = len(N)
-N = int(N)
-
-isexist = False
-for i in range(N):
-    nsum = i
-    j = i
-    while j != 0:
-        nsum += j%10
-        j = j//10
-    if nsum == N:
-        print(i)
-        isexist = True
+numN = int(N)
+answer = 0
+nsum = 0
+for i in range(max(0,numN-len(N)*9),numN):
+    nsum = sum(map(int,str(i)))+i
+    if nsum == numN:
+        answer = i
         break
-if not isexist:
-    print(0)
+print(answer)
