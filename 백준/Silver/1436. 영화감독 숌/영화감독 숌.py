@@ -3,7 +3,7 @@ num = 0
 count = 0
 while True:
   num += 1
-  if str(num).find('666') != -1:
+  if '666' in str(num):
     count += 1
   if count == N:
     print(num)
