@@ -1,7 +1,6 @@
+import sys
 N = int(input())
-ans = set()
-for i in range(N):
-    ans.add(input())
+ans = set(sys.stdin.read().split())
 ans = sorted(ans)
 ans = sorted(ans,key=len)
 for i in ans:
