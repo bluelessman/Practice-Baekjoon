@@ -1,13 +1,12 @@
-from math import floor
 import sys
 m,n=map(int,sys.stdin.readline().split())
-if m == 1:
-  m += 1
-for i in range(m,n+1):
-  isPrime = True
-  for j in range(2,floor(i**0.5)+1):
-    if i%j==0:
-      isPrime = False
-      break
-  if isPrime:
-    print(i)
+p = [1,1]+[0]*(n-1)
+for i in range(2,n+1):
+    for j in range(i,n+1,i):
+      if j!=i:
+        p[j]=1
+for i in range(m,len(p)):
+    if p[i]==0:
+        print(i)
+        
+        
