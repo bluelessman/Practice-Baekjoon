@@ -1,24 +1,22 @@
 import sys
-s = set()
+s = {i:0 for i in range(21)}
 N = int(sys.stdin.readline())
 for i in range(N):
     order = sys.stdin.readline().split()
     if order[0] == "add":
-      s.add(int(order[1]))
+      s[int(order[1])] = 1
     elif order[0] == "remove":
-      if int(order[1]) in s:
-        s.remove(int(order[1]))
+      s[int(order[1])] = 0
     elif order[0] == "check":
-      if int(order[1]) in s:
-        print(1)
-      else:
-        print(0)
+      print(s[int(order[1])])
     elif order[0] == "toggle":
-      if int(order[1]) in s:
-        s.remove(int(order[1]))
+      if s[int(order[1])] == 0:
+        s[int(order[1])]=1
       else:
-        s.add(int(order[1]))
+        s[int(order[1])]=0
     elif order[0] == "all":
-      s = {j+1 for j in range(20)}
+      for i in range(21):
+        s[i] = 1
     elif order[0] == "empty":
-      s = set()
+      for i in range(21):
+        s[i] = 0
